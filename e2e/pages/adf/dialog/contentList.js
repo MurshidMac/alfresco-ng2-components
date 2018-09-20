@@ -37,6 +37,7 @@ var ContentList = function () {
     var rows = by.css("div[id='document-list-container'] div[class*='adf-datatable-body'] div[class*='adf-datatable-row']");
     var emptyFolderMessage = element(by.css("div[class='adf-empty-folder-this-space-is-empty']"));
     var table = element(by.css("div[class*='upload-border']"));
+    var tableBody = element.all(by.css("adf-document-list div[class='adf-datatable-body']")).first();
 
     this.getRowsName = function (content) {
         var row = element.all(by.xpath("//div[@id='document-list-container']//div[@filename='" + content + "']")).first();
@@ -327,25 +328,29 @@ var ContentList = function () {
         let row = this.getRowByRowName(rowName);
         browser.actions().click(row, protractor.Button.RIGHT).perform();
         Util.waitUntilElementIsVisible(element(by.id('adf-context-menu-content')));
-    }
+    };
 
     this.checkContextActionIsVisible = function(actionName) {
         let actionButton = element(by.css(`button[data-automation-id="context-${actionName}"`));
         Util.waitUntilElementIsVisible(actionButton);
         Util.waitUntilElementIsClickable(actionButton);
         return actionButton;
-    }
+    };
 
     this.pressContextMenuActionNamed = function(actionName) {
         let actionButton = this.checkContextActionIsVisible(actionName);
         actionButton.click();
-    }
+    };
 
     this.clickRowToSelect = function(rowName) {
         let row = this.getRowByRowName(rowName);
         browser.actions().keyDown(protractor.Key.COMMAND).click(row).perform();
         this.checkRowIsSelected(rowName);
-    }
+    };
+
+    this.waitForTableBody = function () {
+        Util.waitUntilElementIsVisible(tableBody);
+    };
 
 };
 module.exports = ContentList;

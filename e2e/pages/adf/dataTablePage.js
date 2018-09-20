@@ -35,11 +35,39 @@ var DataTablePage = function () {
     var loadNode = element(by.xpath("//span[contains(text(),'Load Node')]/.."));
     var createdOnColumn = element(by.css("div[data-automation-id='auto_id_createdOn']"));
     var pageLoaded = element(by.css("div[data-automation-id='auto_id_id']"));
-    var tableBody = element.all(by.css("adf-document-list div[class='adf-datatable-body']")).first();
+    var tableBody = element.all(by.css("adf-datatable div[class='adf-datatable-body']")).first();
+    var rows = by.css("adf-datatable div[class*='adf-datatable-body'] div[class*='adf-datatable-row']");
+    var nameColumn = by.css("adf-datatable div[class*='adf-datatable-body'] div[class*='adf-datatable-row'] div[title='Name'] span");
 
     this.goToDatatable = function () {
         browser.driver.get(dataTableURL);
         Util.waitUntilElementIsVisible(pageLoaded);
+    };
+
+    this.getAllDisplayedRows = function () {
+        return element.all(rows).count();
+    };
+
+    this.getAllRowsNameColumn = function () {
+        return this.getAllRowsColumnValues(nameColumn);
+    };
+
+    this.getAllRowsColumnValues = function (locator) {
+        var deferred = protractor.promise.defer();
+        Util.waitUntilElementIsVisible(element.all(locator).first());
+        var initialList = [];
+
+        element.all(locator).each(function (element) {
+            element.getText().then(function (text) {
+                if (text !== '') {
+                    initialList.push(text);
+                }
+            });
+        }).then(function () {
+            deferred.fulfill(initialList);
+        });
+
+        return deferred.promise;
     };
 
     /**
@@ -258,6 +286,19 @@ var DataTablePage = function () {
         var inputFilter = element(by.xpath("//*[@id=\"adf-datatable-filter-input\"]"));
         inputFilter.clear();
         return inputFilter.sendKeys(filterText);
+    };
+
+    this.checkRowIsDisplayedByName = function (name) {
+        Util.waitUntilElementIsVisible(element(by.css("div[filename='"+name+"']")));
+    };
+
+    this.checkRowIsNotDisplayedByName = function (taskName) {
+        Util.waitUntilElementIsNotOnPage(element(by.css("div[filename='"+taskName+"']")));
+    };
+
+    this.getNumberOfRowsDisplayedWithSameName = function (taskName) {
+        Util.waitUntilElementIsVisible(element(by.css("div[filename='"+taskName+"']")));
+        return element.all(by.css("div[title='Name'][filename='"+taskName+"']")).count();
     };
 
 };

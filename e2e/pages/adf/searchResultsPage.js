@@ -168,7 +168,7 @@ var SearchResultsPage = function () {
      */
     this.sortAndCheckListIsOrderedByName = function (sortOrder) {
         this.sortByName(sortOrder);
-        dataTable.waitForTableBody();
+        contentList.waitForTableBody();
         var deferred = protractor.promise.defer();
         contentList.checkListIsOrderedByNameColumn(sortOrder).then(function(result) {
             deferred.fulfill(result);

@@ -21,6 +21,7 @@ var TestConfig = require('../../test.config');
 var NavigationBarPage = function () {
 
     var contentServicesButton = element(by.css("a[data-automation-id='Content Services']"));
+    var taskListButton = element(by.css("a[data-automation-id='Task List']"));
     var configEditoButton = element(by.css("a[data-automation-id='Configuration Editor']"));
     var processServicesButton = element(by.css("a[data-automation-id='Process Services']"));
     var loginButton = element(by.css("a[data-automation-id='Login']"));
@@ -44,6 +45,11 @@ var NavigationBarPage = function () {
         contentServicesButton.click();
     };
 
+    this.clickTaskListButton = function () {
+        Util.waitUntilElementIsVisible(taskListButton);
+        taskListButton.click();
+    };
+    
     /**
      * Click on Config Editor Button
      * @method clickContentServicesButton
