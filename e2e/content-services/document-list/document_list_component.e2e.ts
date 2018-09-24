@@ -649,7 +649,7 @@ describe('Document List Component', () => {
             expect(contentServicesPage.getAttributeValueForElement(testFile.name, cardProperties.CREATED)).toContain('ago');
         });
 
-        it('[C280129] - Gallery Card show details - subfolder gallery displayed', () => {
+        it('[C280129] - Gallery Card show details - sub-folder gallery displayed', () => {
             contentServicesPage.navigateToCardFolder(folderName);
             expect(contentServicesPage.getCardElementShowedInPage()).toBe(1);
             expect(contentServicesPage.getDocumentCardIconForElement(pdfFile.name)).toContain('/assets/images/ft_ic_pdf.svg');

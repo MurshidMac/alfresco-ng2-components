@@ -129,7 +129,7 @@ describe('UploadBase', () => {
 
     });
 
-    describe('filesize', () => {
+    describe('fileSize', () => {
 
         const files: File[] = [
             <File> { name: 'bigFile.png', size: 1000 },
@@ -333,7 +333,7 @@ describe('UploadBase', () => {
         let addToQueueSpy;
 
         const files: File[] = [
-            <File> { name: 'process.pbmn' }
+            <File> { name: 'process.bpmn' }
         ];
 
         beforeEach(() => {
