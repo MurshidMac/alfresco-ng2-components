@@ -225,10 +225,6 @@ export class LoginComponent implements OnInit {
         }
     }
 
-    /**
-     * Performe the login service
-     * @param values
-     */
     private performLogin(values: any) {
         this.actualLoginStep = LoginSteps.Checking;
         this.authService

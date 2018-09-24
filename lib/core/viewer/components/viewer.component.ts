@@ -114,7 +114,7 @@ export class ViewerComponent implements OnChanges, OnInit, OnDestroy {
     @Input()
     allowPrint = false;
 
-    /**  @deprecated 2.5.0 inkect the share button directive as custom button */
+    /**  @deprecated 2.5.0 inject the share button directive as custom button */
     /** Toggles sharing. */
     @Input()
     allowShare = false;

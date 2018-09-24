@@ -30,7 +30,7 @@ export class SitesService {
 
     /**
      * Gets a list of all sites in the repository.
-     * @param opts Options supported by JSAPI
+     * @param opts Options supported by JS-API
      * @returns List of sites
      */
     getSites(opts: any = {}): Observable<SitePaging> {
@@ -48,7 +48,7 @@ export class SitesService {
     /**
      * Gets the details for a site.
      * @param siteId ID of the target site
-     * @param opts Options supported by JSAPI
+     * @param opts Options supported by JS-API
      * @returns Information about the site
      */
     getSite(siteId: string, opts?: any): Observable<SiteEntry> {

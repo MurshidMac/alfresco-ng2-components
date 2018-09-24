@@ -126,7 +126,7 @@ describe('Login component', () => {
         loginPage.clearPassword();
     });
 
-    it('[C260047] Password field is crypted', () => {
+    it('[C260047] Password field is encrypted', () => {
         loginPage.goToLoginPage();
         loginPage.checkSignInButtonIsDisabled();
         loginPage.enterPassword('test');

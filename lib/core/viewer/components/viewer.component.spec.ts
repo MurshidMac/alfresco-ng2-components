@@ -446,8 +446,8 @@ describe('ViewerComponent', () => {
                 });
 
                 it('should Click on close button hide the viewer', () => {
-                    let closebutton: any = element.querySelector('.adf-viewer-close-button');
-                    closebutton.click();
+                    const closeButton: any = element.querySelector('.adf-viewer-close-button');
+                    closeButton.click();
                     fixture.detectChanges();
                     expect(element.querySelector('.adf-viewer-content')).toBeNull();
                 });
@@ -735,7 +735,7 @@ describe('ViewerComponent', () => {
                 });
             }));
 
-            xit('should node without content show unkonwn', async(() => {
+            xit('should node without content show unknown', async(() => {
                 const displayName = 'the-name';
                 const nodeDetails = { name: displayName, id: '12' };
                 const contentUrl = '/content/url/path';
@@ -813,7 +813,7 @@ describe('ViewerComponent', () => {
                 });
             }));
 
-            it('should show uknownn name if displayName is NOT set and blobFile is set', async(() => {
+            it('should show unknown name if displayName is NOT set and blobFile is set', async(() => {
                 component.displayName = null;
                 component.blobFile = new Blob(['This is my blob content'], { type: 'text/plain' });
                 fixture.detectChanges();
