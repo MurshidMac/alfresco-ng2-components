@@ -130,7 +130,7 @@ describe('TaskDetailsComponent', () => {
         expect(fixture.nativeElement.innerText).toBe('ADF_TASK_LIST.DETAILS.MESSAGES.NONE');
     });
 
-    it('shoud display a form when the task has an associated form', () => {
+    it('should display a form when the task has an associated form', () => {
         component.taskId = '123';
         fixture.detectChanges();
         fixture.whenStable().then(() => {
