@@ -78,7 +78,7 @@ export class AppLayoutComponent implements OnInit {
         const preserveState = this.config.get('sideNav.preserveState');
 
         if (preserveState && expand) {
-            this.expandedSidenav = (this.userpreference.get('expandedSidenav', expand.toString()) === 'true');
+            this.expandedSidenav = (this.userPreferences.get('expandedSidenav', expand.toString()) === 'true');
         } else if (expand) {
             this.expandedSidenav = expand;
         }
@@ -93,7 +93,7 @@ export class AppLayoutComponent implements OnInit {
     }
 
     constructor(
-        private userpreference: UserPreferencesService,
+        private userPreferences: UserPreferencesService,
         private config: AppConfigService,
         private alfrescoApiService: AlfrescoApiService,
         private headerService: HeaderDataService) {
@@ -104,7 +104,7 @@ export class AppLayoutComponent implements OnInit {
 
     setState(state) {
         if (this.config.get('sideNav.preserveState')) {
-            this.userpreference.set('expandedSidenav', state);
+            this.userPreferences.set('expandedSidenav', state);
         }
     }
 }

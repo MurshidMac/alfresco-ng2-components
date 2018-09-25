@@ -95,7 +95,7 @@ describe('Login component', () => {
         contentServicesPage.checkAcsContainer();
     });
 
-    it('[C260088] Sould be re-redirect to the request URL after login when try to access to a protect URL ', () => {
+    it('[C260088] Should be re-redirect to the request URL after login when try to access to a protect URL ', () => {
         let uploadActions = new UploadActions();
 
         let uploadedFolder;

@@ -246,6 +246,7 @@ export const appRoutes: Routes = [
             },
             // TODO: check if needed
             {
+                /* cspell:disable-next-line */
                 path: 'activiti/tasksnode/:id',
                 component: FormNodeViewerComponent,
                 canActivate: [AuthGuardBpm]

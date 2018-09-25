@@ -53,12 +53,12 @@ export class VersionManagePage {
         return fileElement.getText();
     }
 
-    chekFileVersionExist(version) {
+    checkFileVersionExist(version) {
         let fileVersion = element(by.css(`[id="adf-version-list-item-version-${version}"]`));
         return Util.waitUntilElementIsVisible(fileVersion);
     }
 
-    chekFileVersionNotExist(version) {
+    checkFileVersionNotExist(version) {
         let fileVersion = element(by.css(`[id="adf-version-list-item-version-${version}"]`));
         return Util.waitUntilElementIsNotVisible(fileVersion);
     }
