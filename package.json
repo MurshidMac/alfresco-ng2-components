@@ -151,7 +151,7 @@
     "merge-stream": "1.0.1",
     "nconf": "^0.10.0",
     "ng-packagr": "4.0.1",
-    "node-sass": "4.9.2",
+    "node-sass": "4.13.1",
     "protractor": "^5.4.0",
     "protractor-html-reporter-2": "^1.0.4",
     "raw-loader": "0.5.1",
